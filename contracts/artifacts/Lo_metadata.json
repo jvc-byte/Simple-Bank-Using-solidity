@@ -1,0 +1,59 @@
+{
+	"compiler": {
+		"version": "0.8.26+commit.8a97fa7a"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [],
+				"name": "loop",
+				"outputs": [
+					{
+						"internalType": "uint256[]",
+						"name": "",
+						"type": "uint256[]"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"contracts/non_prime_numbers.sol": "Lo"
+		},
+		"evmVersion": "cancun",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"contracts/non_prime_numbers.sol": {
+			"keccak256": "0x20996dbce9b66b3d036ea587e043c16d5a12a3d50a6c0def32c7e2b491a9f2fe",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://fbaf9c33bcda3335936c5fe6f90ad14e6ca137661dfdbd4935bfd7ceb49c4cce",
+				"dweb:/ipfs/QmTMU9Ykk2bv5z77kwjmtaRAoupSTS7sA1sDK8Aydafy4H"
+			]
+		}
+	},
+	"version": 1
+}
