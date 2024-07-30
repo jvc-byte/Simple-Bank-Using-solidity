@@ -7,7 +7,7 @@ This repository contains a collection of Solidity smart contracts. Each contract
 - [Introduction](#introduction)
 - [Contracts](#contracts)
   - [SimpleBank](#simplebank)
-  - [AnotherContract](#anothercontract)
+  - [MoreContracts...](#MoreContracts...)
 - [Getting Started](#getting-started)
 - [Usage](#usage)
 - [Contributing](#contributing)
@@ -69,9 +69,9 @@ To work with these contracts, you will need:
 - **Withdraw Ether:** Use the `withdraw` function with the amount to withdraw.
 - **Check Balance:** Use the `getBalance` function.
 
-#### AnotherContract
+#### MoreContracts...
 
-[Instructions on how to interact with AnotherContract]
+[More consecutive Contracts will be added]
 
 ## Contributing
 
@@ -85,6 +85,6 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 For any questions or inquiries, please contact:
 
-- Name: [Your Name]
-- Email: [Your Email]
-- GitHub: [Your GitHub Profile]
+- Name: [JVC]
+- Email: [jvc8463@gmail.com]
+- GitHub: [https://github.com/jvc-byte]
