@@ -47,11 +47,11 @@
 	},
 	"sources": {
 		"contracts/non_prime_numbers.sol": {
-			"keccak256": "0x6dbdea6e63a904e01f8518da42aa3a33fffa27dd38dba4b48db98ad5300223ab",
+			"keccak256": "0x9b7e46a56b131969d8bccc9dd3f82aa6703f179ed6a948647392d1aea572ba23",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://d27166975d1ecc854e890c42247e8776975dc588f28d9fbdc29fb834f23b764b",
-				"dweb:/ipfs/QmcRSB5fns5pe7F1jF82kiaj4nJJEqVW7WhD4HFyDSiEFq"
+				"bzz-raw://0849fccf07dbdce2838751eb1d337c76edb628ed9cb1ce583958ec652fe8ceac",
+				"dweb:/ipfs/QmQ26W2rLktgE5n5jsHjMTpaojZxHW3aFfXZoT7CtjtDpg"
 			]
 		}
 	},
