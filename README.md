@@ -7,7 +7,7 @@ This repository contains a collection of Solidity smart contracts. Each contract
 - [Introduction](#introduction)
 - [Contracts](#contracts)
   - [SimpleBank](#simplebank)
-  - [MoreContracts...](#MoreContracts...)
+  - [More Contracts will be added with time](#MoreContracts)
 - [Getting Started](#getting-started)
 - [Usage](#usage)
 - [Contributing](#contributing)
@@ -28,15 +28,6 @@ This repository contains multiple Solidity smart contracts, each with unique fun
 - Deposit Ether
 - Withdraw Ether
 - Check balance
-
-### AnotherContract
-
-`AnotherContract` demonstrates [brief description of the contract].
-
-#### Features:
-- Feature 1
-- Feature 2
-- Feature 3
 
 ## Getting Started
 
@@ -68,10 +59,6 @@ To work with these contracts, you will need:
 - **Deposit Ether:** Use the `deposit` function.
 - **Withdraw Ether:** Use the `withdraw` function with the amount to withdraw.
 - **Check Balance:** Use the `getBalance` function.
-
-#### MoreContracts...
-
-[More consecutive Contracts will be added]
 
 ## Contributing
 
