@@ -6,52 +6,52 @@
 	"output": {
 		"abi": [
 			{
-				"anonymous": false,
-				"inputs": [
-					{
-						"indexed": true,
-						"internalType": "address",
-						"name": "user",
-						"type": "address"
-					},
-					{
-						"indexed": false,
-						"internalType": "uint256",
-						"name": "amount",
-						"type": "uint256"
-					}
-				],
-				"name": "Deposit",
-				"type": "event"
+				"inputs": [],
+				"name": "_deposit",
+				"outputs": [],
+				"stateMutability": "payable",
+				"type": "function"
 			},
 			{
-				"anonymous": false,
 				"inputs": [
 					{
-						"indexed": true,
-						"internalType": "address",
-						"name": "user",
-						"type": "address"
-					},
-					{
-						"indexed": false,
 						"internalType": "uint256",
 						"name": "amount",
 						"type": "uint256"
+					},
+					{
+						"internalType": "address",
+						"name": "user",
+						"type": "address"
 					}
 				],
-				"name": "Withdrawal",
-				"type": "event"
+				"name": "deposit",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
 			},
 			{
 				"inputs": [
 					{
 						"internalType": "address",
+						"name": "addr",
+						"type": "address"
+					}
+				],
+				"name": "isContract",
+				"outputs": [
+					{
+						"internalType": "bool",
 						"name": "",
-						"type": "address"
+						"type": "bool"
 					}
 				],
-				"name": "balances",
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "max_withdrawal_amount",
 				"outputs": [
 					{
 						"internalType": "uint256",
@@ -64,14 +64,26 @@
 			},
 			{
 				"inputs": [],
-				"name": "deposit",
-				"outputs": [],
-				"stateMutability": "payable",
+				"name": "min_deposit_amount",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
 				"type": "function"
 			},
 			{
-				"inputs": [],
-				"name": "getBalance",
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"name": "record",
 				"outputs": [
 					{
 						"internalType": "uint256",
@@ -109,7 +121,7 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"contracts/simple_bank.sol": "SimpleBank"
+			"contracts/bank.sol": "Bank"
 		},
 		"evmVersion": "cancun",
 		"libraries": {},
@@ -123,12 +135,12 @@
 		"remappings": []
 	},
 	"sources": {
-		"contracts/simple_bank.sol": {
-			"keccak256": "0xfa3ef3323bdbaf768b8446834fff7ba53e0e653251abc293ce49e0ccba9c3a18",
+		"contracts/bank.sol": {
+			"keccak256": "0xf7cc88146225868ee6e7b76a240feb0c7ab3f7fa569abff0945eb2c464b1e359",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://72ebd331dbe0eae2b723bfeebe8285f235ccc30e23184ceb63c18d5c4e74e24f",
-				"dweb:/ipfs/QmXkZnG4vTLQwZXwCp7o56C9cm99KTDoXfYRhGCb9dzMz2"
+				"bzz-raw://89fa49bddce0f4dc2f55508792b0fbd6d171cb5bb70888aeb159d61cd4c3cc3b",
+				"dweb:/ipfs/QmVgP85iNc5Y5KYdsNoHGLDdqCEW9GwZ4UNfpCETtYam6q"
 			]
 		}
 	},

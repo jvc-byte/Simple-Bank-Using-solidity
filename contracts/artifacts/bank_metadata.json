@@ -6,23 +6,61 @@
 	"output": {
 		"abi": [
 			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "UserAddr",
+						"type": "address"
+					}
+				],
+				"name": "GetBalance",
+				"outputs": [
+					{
+						"internalType": "uint64",
+						"name": "",
+						"type": "uint64"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
 				"inputs": [],
-				"name": "_deposit",
-				"outputs": [],
-				"stateMutability": "payable",
+				"name": "MaxWithdAmt",
+				"outputs": [
+					{
+						"internalType": "uint64",
+						"name": "",
+						"type": "uint64"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "MinDepAmt",
+				"outputs": [
+					{
+						"internalType": "uint64",
+						"name": "",
+						"type": "uint64"
+					}
+				],
+				"stateMutability": "view",
 				"type": "function"
 			},
 			{
 				"inputs": [
 					{
-						"internalType": "uint256",
-						"name": "amount",
-						"type": "uint256"
+						"internalType": "address",
+						"name": "DepAddr",
+						"type": "address"
 					},
 					{
-						"internalType": "address",
-						"name": "user",
-						"type": "address"
+						"internalType": "uint64",
+						"name": "DepAmt",
+						"type": "uint64"
 					}
 				],
 				"name": "deposit",
@@ -50,10 +88,21 @@
 				"type": "function"
 			},
 			{
-				"inputs": [],
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "WithdAddr",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "WithdAmt",
+						"type": "uint256"
+					}
+				],
 				"name": "withdraw",
 				"outputs": [],
-				"stateMutability": "payable",
+				"stateMutability": "nonpayable",
 				"type": "function"
 			}
 		],
@@ -85,11 +134,11 @@
 	},
 	"sources": {
 		"contracts/bank.sol": {
-			"keccak256": "0x96954b7bca6a30a137086db3fcdbd09fe6df6b0f708b3b6e49ad3ff3d0babc7e",
+			"keccak256": "0xa20a9bfc5e618bdfd7383b920a2e473ffa2957acc3307513f28261feead98433",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://2fcd83a4c6ae41825ba10ad0effbdee648dff64da6c75c7d124ead5355a68ea4",
-				"dweb:/ipfs/QmXhL6ybJbEHLC8kE8R66pvEdXieJ1FPQJEt6CYNChFDas"
+				"bzz-raw://d559980f29ce7c067f3f5e090cbce7603767163d6f1a0d08919079329b7588c8",
+				"dweb:/ipfs/QmW6kq91KcXp6S4b63uFasV25HB3iYE4GH68GUMnQDnJEZ"
 			]
 		}
 	},
