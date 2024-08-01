@@ -25,32 +25,6 @@
 				"type": "function"
 			},
 			{
-				"inputs": [],
-				"name": "MaxWithdAmt",
-				"outputs": [
-					{
-						"internalType": "uint64",
-						"name": "",
-						"type": "uint64"
-					}
-				],
-				"stateMutability": "view",
-				"type": "function"
-			},
-			{
-				"inputs": [],
-				"name": "MinDepAmt",
-				"outputs": [
-					{
-						"internalType": "uint64",
-						"name": "",
-						"type": "uint64"
-					}
-				],
-				"stateMutability": "view",
-				"type": "function"
-			},
-			{
 				"inputs": [
 					{
 						"internalType": "address",
@@ -79,9 +53,9 @@
 				"name": "record",
 				"outputs": [
 					{
-						"internalType": "uint256",
+						"internalType": "uint64",
 						"name": "",
-						"type": "uint256"
+						"type": "uint64"
 					}
 				],
 				"stateMutability": "view",
@@ -95,9 +69,9 @@
 						"type": "address"
 					},
 					{
-						"internalType": "uint256",
+						"internalType": "uint64",
 						"name": "WithdAmt",
-						"type": "uint256"
+						"type": "uint64"
 					}
 				],
 				"name": "withdraw",
@@ -134,11 +108,11 @@
 	},
 	"sources": {
 		"contracts/bank.sol": {
-			"keccak256": "0xa20a9bfc5e618bdfd7383b920a2e473ffa2957acc3307513f28261feead98433",
+			"keccak256": "0x3d60fb658b85de76b9933ef228900d44ff53ea89e8dbc758381e818bd295d797",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://d559980f29ce7c067f3f5e090cbce7603767163d6f1a0d08919079329b7588c8",
-				"dweb:/ipfs/QmW6kq91KcXp6S4b63uFasV25HB3iYE4GH68GUMnQDnJEZ"
+				"bzz-raw://28bac0d8b372a0633ce78a1935ac20bebf5ccd9dbea9e8ec38c6f6e113a7f8f4",
+				"dweb:/ipfs/QmZkwPemjFswbWcXM7Movay2VJbNiq2QoeFQePF3TgsRwW"
 			]
 		}
 	},

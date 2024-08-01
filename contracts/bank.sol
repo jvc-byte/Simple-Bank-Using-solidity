@@ -2,20 +2,20 @@
 pragma solidity ^0.8.24;
 
 contract bank {
-    mapping (address => uint256) public record;
+    mapping (address => uint64) public record;
 
-    uint64 public MinDepAmt = 250000000000000 wei;
-    uint64 public MaxWithdAmt = 2 ether;
+    // uint64 public MinDepAmt = 250000000000000 wei;
+    // uint64 public MaxWithdAmt = 2 ether;
 
     modifier CheckMinDepAmt(uint64 amt)
     {
-        require(amt > MinDepAmt, "Minimun Deposit amount is 0.25 Ether");
+        require(amt >= 250000000000000/*MinDepAmt*/, "Minimun Deposit amount is 0.25 Ether");
         _;
     }
 
     modifier CheckMaxWithdAmt(uint64 amt)
     {
-        require(amt < MaxWithdAmt, "Max Withdrawal Amount is 2 Ether");
+        require(amt <= 2000000000000000000 /*MaxWithdAmt*/, "Max Withdrawal Amount is 2 Ether");
         _;
     }
 
@@ -35,7 +35,7 @@ contract bank {
     }
 
     // set a maximum amount for withdrawal (withdrawal limit)
-    function withdraw(address WithdAddr, uint256 WithdAmt)
+    function withdraw(address WithdAddr, uint64 WithdAmt)
     public
     VerifyAddr(WithdAddr)
     CheckMaxWithdAmt(WithdAmt)
@@ -63,6 +63,6 @@ contract bank {
     view 
     returns (uint64)
     {
-        return record[UserAddr]
+        return record[UserAddr];
     }
 }
