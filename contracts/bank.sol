@@ -7,6 +7,14 @@ contract bank {
     // uint64 public MinDepAmt = 250000000000000 wei;
     // uint64 public MaxWithdAmt = 2 ether;
 
+    struct user{
+        string uname;
+        address uaddress;
+        uint64 balance;
+    }
+
+    user[] public users;
+
     modifier CheckMinDepAmt(uint64 amt) {
         require(
             amt >= 250000000000000, /*MinDepAmt*/
@@ -26,6 +34,11 @@ contract bank {
     modifier VerifyAddr(address addr) {
         require(!ContractAddr(addr), "This is a contract address!");
         _;
+    }
+
+    // Function to register all users
+    function RegisterUsers(string memory uname, address uaddress, uint64 balance) public {
+        users.push(user(uname, uaddress, balance));
     }
 
     // set a minimum amount for deposit
@@ -51,8 +64,21 @@ contract bank {
         return _addr.code.length > 0;
     }
 
-    // Check user ballance
-    function GetBalance(address UserAddr) public view returns (uint64) {
-        return record[UserAddr];
-    }
+
+
+
+    //  // Helper function to compare two strings
+    // function compareStrings(string memory a, string memory b) internal pure returns (bool) {
+    //     return keccak256(abi.encodePacked(a)) == keccak256(abi.encodePacked(b));
+    // }
+
+    // // Function to get a user by username
+    // function getUserByUsername(string memory uname) public view returns (user memory) {
+    //     for (uint i = 0; i < users.length; i++) {
+    //         if (compareStrings(users[i].uname, uname)) {
+    //             return users[i];
+    //         }
+    //     }
+    //     revert("User not found");
+    // }
 }

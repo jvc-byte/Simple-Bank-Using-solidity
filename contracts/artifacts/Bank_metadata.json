@@ -7,6 +7,32 @@
 		"abi": [
 			{
 				"inputs": [],
+				"name": "MAX_WITHDRAWAL",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "MIN_DEPOSIT",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
 				"name": "_deposit",
 				"outputs": [],
 				"stateMutability": "payable",
@@ -18,11 +44,6 @@
 						"internalType": "uint256",
 						"name": "amount",
 						"type": "uint256"
-					},
-					{
-						"internalType": "address",
-						"name": "user",
-						"type": "address"
 					}
 				],
 				"name": "deposit",
@@ -34,25 +55,22 @@
 				"inputs": [
 					{
 						"internalType": "address",
-						"name": "addr",
+						"name": "_user",
 						"type": "address"
 					}
 				],
-				"name": "isContract",
+				"name": "getUserProfile",
 				"outputs": [
 					{
-						"internalType": "bool",
+						"internalType": "string",
 						"name": "",
-						"type": "bool"
-					}
-				],
-				"stateMutability": "view",
-				"type": "function"
-			},
-			{
-				"inputs": [],
-				"name": "max_withdrawal_amount",
-				"outputs": [
+						"type": "string"
+					},
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					},
 					{
 						"internalType": "uint256",
 						"name": "",
@@ -63,16 +81,16 @@
 				"type": "function"
 			},
 			{
-				"inputs": [],
-				"name": "min_deposit_amount",
-				"outputs": [
+				"inputs": [
 					{
-						"internalType": "uint256",
-						"name": "",
-						"type": "uint256"
+						"internalType": "string",
+						"name": "_name",
+						"type": "string"
 					}
 				],
-				"stateMutability": "view",
+				"name": "setUserProfile",
+				"outputs": [],
+				"stateMutability": "nonpayable",
 				"type": "function"
 			},
 			{
@@ -83,11 +101,21 @@
 						"type": "address"
 					}
 				],
-				"name": "record",
+				"name": "userProfiles",
 				"outputs": [
 					{
+						"internalType": "string",
+						"name": "name",
+						"type": "string"
+					},
+					{
+						"internalType": "address",
+						"name": "userAddress",
+						"type": "address"
+					},
+					{
 						"internalType": "uint256",
-						"name": "",
+						"name": "balance",
 						"type": "uint256"
 					}
 				],
@@ -98,7 +126,7 @@
 				"inputs": [
 					{
 						"internalType": "uint256",
-						"name": "amount",
+						"name": "_amount",
 						"type": "uint256"
 					}
 				],
@@ -121,7 +149,7 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"contracts/bank.sol": "Bank"
+			"contracts/testMajid.sol": "Bank"
 		},
 		"evmVersion": "cancun",
 		"libraries": {},
@@ -135,12 +163,12 @@
 		"remappings": []
 	},
 	"sources": {
-		"contracts/bank.sol": {
-			"keccak256": "0xf7cc88146225868ee6e7b76a240feb0c7ab3f7fa569abff0945eb2c464b1e359",
+		"contracts/testMajid.sol": {
+			"keccak256": "0x949e9522478626fd74a1f70d4ba445e83ee79827ccca1aa65cc266cf2224dbe3",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://89fa49bddce0f4dc2f55508792b0fbd6d171cb5bb70888aeb159d61cd4c3cc3b",
-				"dweb:/ipfs/QmVgP85iNc5Y5KYdsNoHGLDdqCEW9GwZ4UNfpCETtYam6q"
+				"bzz-raw://06234be02fed8134b5910d866a1531911b93aab3f522a0597ef7b16ee3fd6482",
+				"dweb:/ipfs/QmVPe6R2TsueWdjJb4psHcq2A2SETcPbsiLnkfoR29sgyH"
 			]
 		}
 	},
