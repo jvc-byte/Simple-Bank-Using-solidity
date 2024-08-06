@@ -3,31 +3,24 @@ pragma solidity ^0.8.24;
 
 contract bank {
     mapping(address => uint64) public record;
+    mapping(string => User) private users;
 
-    // uint64 public MinDepAmt = 250000000000000 wei;
-    // uint64 public MaxWithdAmt = 2 ether;
+    uint64 private MinDepAmt = 250000000000000 wei;
+    uint64 private MaxWithdAmt = 2 ether;
 
-    struct user{
+    struct User {
         string uname;
         address uaddress;
         uint64 balance;
     }
 
-    user[] public users;
-
     modifier CheckMinDepAmt(uint64 amt) {
-        require(
-            amt >= 250000000000000, /*MinDepAmt*/
-            "Minimun Deposit amount is 0.25 Ether"
-        );
+        require(amt >= MinDepAmt, "Minimun Deposit amount is 0.25 Ether");
         _;
     }
 
     modifier CheckMaxWithdAmt(uint64 amt) {
-        require(
-            amt <= 2000000000000000000, /*MaxWithdAmt*/
-            "Max Withdrawal Amount is 2 Ether"
-        );
+        require(amt <= MaxWithdAmt, "Max Withdrawal Amount is 2 Ether");
         _;
     }
 
@@ -35,10 +28,29 @@ contract bank {
         require(!ContractAddr(addr), "This is a contract address!");
         _;
     }
+    // Check if user exist in the system
+    modifier VerifyUname(string memory uname) {
+        require(users[uname].uaddress != address(0), "User does not exist!");
+        _;
+    }
 
-    // Function to register all users
-    function RegisterUsers(string memory uname, address uaddress, uint64 balance) public {
-        users.push(user(uname, uaddress, balance));
+    // Function to register a user
+    function registerUser(
+        string memory uname,
+        address uaddress,
+        uint64 balance
+    ) public {
+        users[uname] = User(uname, uaddress, balance);
+    }
+
+    // Function to get a user by username
+    function getUserByUsername(string memory uname)
+        public
+        view
+        VerifyUname(uname)
+        returns (User memory)
+    {
+        return users[uname];
     }
 
     // set a minimum amount for deposit
@@ -53,7 +65,7 @@ contract bank {
     // set a maximum amount for withdrawal (withdrawal limit)
     function withdraw(address WithdAddr, uint64 WithdAmt)
         public
-        VerifyAddr(WithdAddr)
+        VerifyAddr(WithdAddr) // ensure the caller is not a contract address
         CheckMaxWithdAmt(WithdAmt)
     {
         record[WithdAddr] -= WithdAmt;
@@ -63,22 +75,4 @@ contract bank {
     function ContractAddr(address _addr) internal view returns (bool) {
         return _addr.code.length > 0;
     }
-
-
-
-
-    //  // Helper function to compare two strings
-    // function compareStrings(string memory a, string memory b) internal pure returns (bool) {
-    //     return keccak256(abi.encodePacked(a)) == keccak256(abi.encodePacked(b));
-    // }
-
-    // // Function to get a user by username
-    // function getUserByUsername(string memory uname) public view returns (user memory) {
-    //     for (uint i = 0; i < users.length; i++) {
-    //         if (compareStrings(users[i].uname, uname)) {
-    //             return users[i];
-    //         }
-    //     }
-    //     revert("User not found");
-    // }
 }
