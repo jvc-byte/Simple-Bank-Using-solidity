@@ -14,13 +14,30 @@ contract bank {
         uint64 balance;
     }
 
+    enum Status {
+        Pending,
+        Failed,
+        Successful
+    }
+    Status public status;
+
     modifier CheckMinDepAmt(uint64 amt) {
-        require(amt >= MinDepAmt, "Minimun Deposit amount is 0.25 Ether");
+        if (amt > MinDepAmt ) {
+            status = Status.Successful;
+        } else {
+            status = Status.Failed;
+        }
+        // require(amt > MinDepAmt, "Minimun Deposit amount is 0.25 Ether");
         _;
     }
 
     modifier CheckMaxWithdAmt(uint64 amt) {
-        require(amt <= MaxWithdAmt, "Max Withdrawal Amount is 2 Ether");
+        if (amt < MaxWithdAmt ) {
+            status = Status.Successful;
+        } else {
+            status = Status.Failed;
+        }
+        // require(amt <= MaxWithdAmt, "Max Withdrawal Amount is 2 Ether");
         _;
     }
 
@@ -59,7 +76,9 @@ contract bank {
         VerifyAddr(DepAddr) // ensure the caller is not a contract address
         CheckMinDepAmt(DepAmt)
     {
-        record[DepAddr] += DepAmt;
+        if (status == Status.Successful) {
+            record[DepAddr] += DepAmt;
+        }
     }
 
     // set a maximum amount for withdrawal (withdrawal limit)
@@ -68,7 +87,11 @@ contract bank {
         VerifyAddr(WithdAddr) // ensure the caller is not a contract address
         CheckMaxWithdAmt(WithdAmt)
     {
-        record[WithdAddr] -= WithdAmt;
+        if (status == Status.Successful && record[WithdAddr] >= WithdAmt) {
+            record[WithdAddr] -= WithdAmt;
+        } else {
+            status = Status.Failed;
+        }
     }
 
     // Helper function to check for contract address
