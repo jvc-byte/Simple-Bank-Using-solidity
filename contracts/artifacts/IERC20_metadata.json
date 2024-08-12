@@ -152,7 +152,7 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"contracts/interface.sol": "IERC20"
+			"contracts/ERC20.sol": "IERC20"
 		},
 		"evmVersion": "cancun",
 		"libraries": {},
@@ -166,7 +166,7 @@
 		"remappings": []
 	},
 	"sources": {
-		"contracts/interface.sol": {
+		"contracts/ERC20.sol": {
 			"keccak256": "0x08868f6e53e0cfded813495b9939a4d32b90836706c853ce05b34b8c83367f66",
 			"license": "MIT",
 			"urls": [
