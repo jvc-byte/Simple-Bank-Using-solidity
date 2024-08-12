@@ -1,0 +1,173 @@
+{
+	"compiler": {
+		"version": "0.8.26+commit.8a97fa7a"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "DepAddr",
+						"type": "address"
+					},
+					{
+						"internalType": "uint64",
+						"name": "DepAmt",
+						"type": "uint64"
+					}
+				],
+				"name": "deposit",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "string",
+						"name": "uname",
+						"type": "string"
+					}
+				],
+				"name": "getUserByUsername",
+				"outputs": [
+					{
+						"components": [
+							{
+								"internalType": "string",
+								"name": "uname",
+								"type": "string"
+							},
+							{
+								"internalType": "address",
+								"name": "uaddress",
+								"type": "address"
+							},
+							{
+								"internalType": "uint64",
+								"name": "balance",
+								"type": "uint64"
+							}
+						],
+						"internalType": "struct bank.User",
+						"name": "",
+						"type": "tuple"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"name": "record",
+				"outputs": [
+					{
+						"internalType": "uint64",
+						"name": "",
+						"type": "uint64"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "string",
+						"name": "uname",
+						"type": "string"
+					},
+					{
+						"internalType": "address",
+						"name": "uaddress",
+						"type": "address"
+					},
+					{
+						"internalType": "uint64",
+						"name": "balance",
+						"type": "uint64"
+					}
+				],
+				"name": "registerUser",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "status",
+				"outputs": [
+					{
+						"internalType": "enum bank.Status",
+						"name": "",
+						"type": "uint8"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "WithdAddr",
+						"type": "address"
+					},
+					{
+						"internalType": "uint64",
+						"name": "WithdAmt",
+						"type": "uint64"
+					}
+				],
+				"name": "withdraw",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"contracts/bank.sol": "bank"
+		},
+		"evmVersion": "cancun",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"contracts/bank.sol": {
+			"keccak256": "0x1065f1dc9a9282df5117d09d3bb32f37c20efcf87b17ab1b78e2789a1f9b7578",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://01626ddb016db7b7c4d33f7a3eba42bea48e34bfc8379f29c96806d3f973d028",
+				"dweb:/ipfs/QmPdHQtTXstRKYmZXhBLQbKuLr8wmJWb73ZDpWX1B4weEp"
+			]
+		}
+	},
+	"version": 1
+}
