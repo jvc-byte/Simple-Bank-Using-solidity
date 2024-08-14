@@ -8,6 +8,6 @@ contract MyToken is ERC20 {
         ERC20(name, symbol)
     {
         // Mint 100 tokens to msg.sender with default 18 decimals
-        _mint(msg.sender, 100 * 10 ** uint256(decimals()));
+        _mint(msg.sender, 12000000000 * 10 ** uint256(decimals()));
     }
 }

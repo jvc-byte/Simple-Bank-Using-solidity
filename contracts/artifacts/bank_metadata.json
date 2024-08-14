@@ -6,6 +6,19 @@
 	"output": {
 		"abi": [
 			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "string",
+						"name": "message",
+						"type": "string"
+					}
+				],
+				"name": "DepositWithdrawError",
+				"type": "event"
+			},
+			{
 				"inputs": [
 					{
 						"internalType": "address",
@@ -161,11 +174,11 @@
 	},
 	"sources": {
 		"contracts/bank.sol": {
-			"keccak256": "0x1065f1dc9a9282df5117d09d3bb32f37c20efcf87b17ab1b78e2789a1f9b7578",
+			"keccak256": "0xaaa37e9c05163a55a56f13bd3d893c61bb0cc936954a630371fa31654ed391ab",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://01626ddb016db7b7c4d33f7a3eba42bea48e34bfc8379f29c96806d3f973d028",
-				"dweb:/ipfs/QmPdHQtTXstRKYmZXhBLQbKuLr8wmJWb73ZDpWX1B4weEp"
+				"bzz-raw://3728d96f2cab58e0ebe8201b8c6b898d75dc388c98992ac23c0259f40a987076",
+				"dweb:/ipfs/QmbFyM1ksEmvtVfFzgxvAJCjQ8Q4RBhiDJtRpB5JTvZ32P"
 			]
 		}
 	},
