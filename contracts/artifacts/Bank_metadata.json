@@ -224,6 +224,19 @@
 				"type": "function"
 			},
 			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					}
+				],
+				"name": "mintToken",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
 				"inputs": [],
 				"name": "owner",
 				"outputs": [
@@ -434,19 +447,19 @@
 			]
 		},
 		"contracts/JVCToken.sol": {
-			"keccak256": "0xc14901455fdcb8f56ed1f7b72745a283353ee84cb139a6470601ae9be1414ed4",
+			"keccak256": "0x6de2e4bdc736aa04ad5637b19f7e0617fd366083802eec3dd6f27bc686ed5e04",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://50c31466fea10d0e7eaa6322ad2a1cf432384a7073d2b77bc48c964ad324fb6f",
-				"dweb:/ipfs/QmVRfEKjgt1tkDPmcmoRsc7e73kawmQ6PcSLqaUBSEQ8pW"
+				"bzz-raw://f4d7cc5b1766c08f5df33d00f653ffc92b4c7f8851ca55e72d32fdb6eb4b672d",
+				"dweb:/ipfs/Qme6KVURy4F6tR5qTunMe26aiVDkzM2ZbgvRhPckenTVdC"
 			]
 		},
 		"contracts/bank.sol": {
-			"keccak256": "0xa49534ba040195be150c860e22f47ca9d2fc1560ad63b68e6ce713db32e528c4",
+			"keccak256": "0x533a74d3d9cbd846d3a67ec432205681bf8694877f5fb22429c6baf2ebea57c2",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://cb33a5bcedacc526fc88131993656be7bbd0caea04ed3f103d853867c1f951d9",
-				"dweb:/ipfs/QmY2epcMMSbx5ru1YEYdn2ZbFVmsLLWDqpv3phJUzFJ5f8"
+				"bzz-raw://b079f96aa7d19db04e2f077747e0bd96e4ec35754736b45be919a99bc6fadb3d",
+				"dweb:/ipfs/QmeLJ4BhMUFKhYjn7bWMfErMiSoychxvZTnqZzFgMP7aSW"
 			]
 		}
 	},

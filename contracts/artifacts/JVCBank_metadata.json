@@ -155,6 +155,44 @@
 					{
 						"indexed": true,
 						"internalType": "address",
+						"name": "user",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "string",
+						"name": "message",
+						"type": "string"
+					}
+				],
+				"name": "DepositFailed",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "user",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					}
+				],
+				"name": "DepositSuccessful",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
 						"name": "previousOwner",
 						"type": "address"
 					},
@@ -191,6 +229,50 @@
 					}
 				],
 				"name": "Transfer",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "user",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "string",
+						"name": "message",
+						"type": "string"
+					}
+				],
+				"name": "WithdrawalFailed",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "addr",
+						"type": "address"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "user",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					}
+				],
+				"name": "WithdrawalSuccessful",
 				"type": "event"
 			},
 			{
@@ -261,6 +343,19 @@
 				"type": "function"
 			},
 			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					}
+				],
+				"name": "burnToken",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
 				"inputs": [],
 				"name": "decimals",
 				"outputs": [
@@ -271,6 +366,98 @@
 					}
 				],
 				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "deposit",
+				"outputs": [],
+				"stateMutability": "payable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "userAddress",
+						"type": "address"
+					}
+				],
+				"name": "getUserByAddress",
+				"outputs": [
+					{
+						"components": [
+							{
+								"internalType": "address",
+								"name": "uAddr",
+								"type": "address"
+							},
+							{
+								"internalType": "string",
+								"name": "uName",
+								"type": "string"
+							},
+							{
+								"internalType": "uint256",
+								"name": "balance",
+								"type": "uint256"
+							}
+						],
+						"internalType": "struct JVCBank.User",
+						"name": "",
+						"type": "tuple"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "string",
+						"name": "Uname",
+						"type": "string"
+					}
+				],
+				"name": "getUserByName",
+				"outputs": [
+					{
+						"components": [
+							{
+								"internalType": "address",
+								"name": "uAddr",
+								"type": "address"
+							},
+							{
+								"internalType": "string",
+								"name": "uName",
+								"type": "string"
+							},
+							{
+								"internalType": "uint256",
+								"name": "balance",
+								"type": "uint256"
+							}
+						],
+						"internalType": "struct JVCBank.User",
+						"name": "",
+						"type": "tuple"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					}
+				],
+				"name": "mintToken",
+				"outputs": [],
+				"stateMutability": "nonpayable",
 				"type": "function"
 			},
 			{
@@ -300,10 +487,41 @@
 				"type": "function"
 			},
 			{
+				"inputs": [
+					{
+						"internalType": "string",
+						"name": "uname",
+						"type": "string"
+					},
+					{
+						"internalType": "address payable",
+						"name": "addr",
+						"type": "address"
+					}
+				],
+				"name": "registerUser",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
 				"inputs": [],
 				"name": "renounceOwnership",
 				"outputs": [],
 				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "status",
+				"outputs": [
+					{
+						"internalType": "enum JVCBank.Status",
+						"name": "",
+						"type": "uint8"
+					}
+				],
+				"stateMutability": "view",
 				"type": "function"
 			},
 			{
@@ -396,6 +614,66 @@
 				"name": "transferOwnership",
 				"outputs": [],
 				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_newOwner",
+						"type": "address"
+					}
+				],
+				"name": "transferOwnership_",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"name": "users",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "uAddr",
+						"type": "address"
+					},
+					{
+						"internalType": "string",
+						"name": "uName",
+						"type": "string"
+					},
+					{
+						"internalType": "uint256",
+						"name": "balance",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					},
+					{
+						"internalType": "address payable",
+						"name": "addr",
+						"type": "address"
+					}
+				],
+				"name": "withdraw",
+				"outputs": [],
+				"stateMutability": "payable",
 				"type": "function"
 			}
 		],
@@ -521,7 +799,7 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"contracts/token.sol": "JVCToken"
+			"contracts/bank.sol": "JVCBank"
 		},
 		"evmVersion": "cancun",
 		"libraries": {},
@@ -583,12 +861,20 @@
 				"dweb:/ipfs/Qmax9WHBnVsZP46ZxEMNRQpLQnrdE4dK8LehML1Py8FowF"
 			]
 		},
-		"contracts/token.sol": {
-			"keccak256": "0xf8e80af15696cf6995105438c6e66b9a7f162e029ac1cab8c3e61285a559e142",
+		"contracts/bank.sol": {
+			"keccak256": "0xc1370566dfd164004d2e080045b243f0f4510473afa2e5dcff1fdd6d20e508b3",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://a206a55a3db7e9ec195391cf3d5c71feab4c019267bfc078734c4d7e2408cd87",
-				"dweb:/ipfs/QmYUQrRRkaSAF6xqB8o75rcGJ8uV2MiYbp7TEbXyJCKSuC"
+				"bzz-raw://2a25a2c2c2fc0a0769568565bd7947ad089e1a3ea876ad7c94413bdda359c9c8",
+				"dweb:/ipfs/QmXTfn3nFhK7poMQ22PFZQLqWcqeiAwvDv8AdpjTWpnMpB"
+			]
+		},
+		"contracts/token.sol": {
+			"keccak256": "0xb30cf13722e947764feb154dcb6cce60d82c6ef1c7a0a8bdb60c0ce992becc2a",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://3bcc37a8765d39946fb066c00580e5151dec41501cb4cbf1be37336f8819b393",
+				"dweb:/ipfs/QmPTSsEEbV6YAWL8bSvTLohVA3ysBFQWwvxbySxRKadfW4"
 			]
 		}
 	},
