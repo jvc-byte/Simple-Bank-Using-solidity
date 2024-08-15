@@ -19,21 +19,10 @@
 				"type": "event"
 			},
 			{
-				"inputs": [
-					{
-						"internalType": "address",
-						"name": "DepAddr",
-						"type": "address"
-					},
-					{
-						"internalType": "uint64",
-						"name": "DepAmt",
-						"type": "uint64"
-					}
-				],
+				"inputs": [],
 				"name": "deposit",
 				"outputs": [],
-				"stateMutability": "nonpayable",
+				"stateMutability": "payable",
 				"type": "function"
 			},
 			{
@@ -59,9 +48,9 @@
 								"type": "address"
 							},
 							{
-								"internalType": "uint64",
+								"internalType": "uint256",
 								"name": "balance",
-								"type": "uint64"
+								"type": "uint256"
 							}
 						],
 						"internalType": "struct bank.User",
@@ -83,9 +72,9 @@
 				"name": "record",
 				"outputs": [
 					{
-						"internalType": "uint64",
+						"internalType": "uint256",
 						"name": "",
-						"type": "uint64"
+						"type": "uint256"
 					}
 				],
 				"stateMutability": "view",
@@ -97,16 +86,6 @@
 						"internalType": "string",
 						"name": "uname",
 						"type": "string"
-					},
-					{
-						"internalType": "address",
-						"name": "uaddress",
-						"type": "address"
-					},
-					{
-						"internalType": "uint64",
-						"name": "balance",
-						"type": "uint64"
 					}
 				],
 				"name": "registerUser",
@@ -128,21 +107,10 @@
 				"type": "function"
 			},
 			{
-				"inputs": [
-					{
-						"internalType": "address",
-						"name": "WithdAddr",
-						"type": "address"
-					},
-					{
-						"internalType": "uint64",
-						"name": "WithdAmt",
-						"type": "uint64"
-					}
-				],
+				"inputs": [],
 				"name": "withdraw",
 				"outputs": [],
-				"stateMutability": "nonpayable",
+				"stateMutability": "payable",
 				"type": "function"
 			}
 		],
@@ -167,18 +135,18 @@
 			"bytecodeHash": "ipfs"
 		},
 		"optimizer": {
-			"enabled": false,
+			"enabled": true,
 			"runs": 200
 		},
 		"remappings": []
 	},
 	"sources": {
 		"contracts/bank.sol": {
-			"keccak256": "0xaaa37e9c05163a55a56f13bd3d893c61bb0cc936954a630371fa31654ed391ab",
+			"keccak256": "0x2ad377c78427afd687f38f7823b8ed833767ea1c564e4eef5bb5e4b8796f18b6",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://3728d96f2cab58e0ebe8201b8c6b898d75dc388c98992ac23c0259f40a987076",
-				"dweb:/ipfs/QmbFyM1ksEmvtVfFzgxvAJCjQ8Q4RBhiDJtRpB5JTvZ32P"
+				"bzz-raw://7cd39ce8bff7b05574e31ce544a4727db8c33dc1d66e81d24f43ad58ed46a175",
+				"dweb:/ipfs/Qmd5oiKNkAd4siB7DhRvTWVdW8sVrXBUgSK11LpoN4o7om"
 			]
 		}
 	},

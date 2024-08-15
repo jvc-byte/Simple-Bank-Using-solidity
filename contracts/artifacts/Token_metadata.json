@@ -549,7 +549,7 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"contracts/JVCToken.sol": "MyToken"
+			"contracts/JVCToken.sol": "Token"
 		},
 		"evmVersion": "cancun",
 		"libraries": {},
@@ -612,11 +612,11 @@
 			]
 		},
 		"contracts/JVCToken.sol": {
-			"keccak256": "0x4586da2241f9150222534a607ed117d2f369fd4b77048ab97cd71493d5f691c0",
+			"keccak256": "0x032e8f0134d3e948e295e71feb793189115d482216ce9d43e7255feac0b6f607",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://c1501a63b1d837d5d4747b343df426384da3cd993d347b10b1bf577b0750ddf5",
-				"dweb:/ipfs/QmYsV6quNKEvkmz1L8p6uhsX1ySLAUY87LQ4bDzmoxXNXE"
+				"bzz-raw://e48f0a7d45f09903ff758d6504b19ccc2fe9f4964b5576eb14e01671ef43da3d",
+				"dweb:/ipfs/QmdejvvCroMVuEj4o965ZuZPJyoB4NdSuiwRVtQ4nn2wcq"
 			]
 		}
 	},
