@@ -1,23 +1,26 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.24;
 
-import "@openzeppelin/contracts/access/Ownable.sol";
 import "./token.sol";
 
-contract JVCBank is Ownable, JVCToken {
-    // Declare storage locations
-    mapping(address => User) public users;
-    uint256 private minDepAmt = 0.00038 ether;
-    uint256 private maxWithdAmt = 1 ether;
+contract Bank {
+    // Create an instance of the contract (JVCToken)
+    JVCToken internal token;
 
-    // Store user data
+    // Storage location for the users
     struct User {
-        address uAddr;
-        string uName;
+        string uname;
         uint256 balance;
     }
 
-    // Record the state of the transaction with custom datatype
+    // Use address as a key to access the storage location for the users
+    mapping(address => User) private users;
+
+    // Constants for minimum deposit and maximum withdrawal amount
+    uint256 private constant minDepAmt = 100 wei;
+    uint256 private constant maxWithdAmt = 1 ether;
+
+    // Custom datatype recognised as unsigned integer to store the state of deposit and withdrawal.
     enum Status {
         Pending,
         Failed,
@@ -25,74 +28,94 @@ contract JVCBank is Ownable, JVCToken {
     }
     Status public status;
 
-    // Log the status of the deposit and withdrawal function
+    // Events to log the status of the withdrawal and deposit activities
     event DepositSuccessful(address indexed user, uint256 amount);
     event DepositFailed(address indexed user, string message);
-    event WithdrawalSuccessful(address indexed addr, address indexed user, uint256 amount);
+    event WithdrawalSuccessful(address indexed user, uint256 amount);
     event WithdrawalFailed(address indexed user, string message);
 
-    // Verify that an address is not a contract address using the helper function (isContractAddr)
-    modifier verifyAddr(address _addr) {
-        require(!isContractAddr(_addr), "This is a contract address!");
-        _;
-    }
-    // Verify that a user exist
-    modifier findUserByUname(string memory uname) {
-        require(bytes(users[msg.sender].uName).length != 0, "User not found!");
+    // Function modifier to ensure an address in not a contract address
+    modifier verifyAddr() {
+        require(!isContractAddr(msg.sender), "This is a contract address!");
         _;
     }
 
-    constructor(uint256 _initialSupply) JVCToken(_initialSupply){}
-
-    // Register users
-    function registerUser(string memory uname, address payable addr) public {
-        require(bytes(users[addr].uName).length == 0, "User already registered!");
-        users[addr] = User(addr, uname, 0);
+    // Get the token address which will be used to interact with the deployed contract (JVCToken)
+    constructor(address _tokenAddress) {
+        token = JVCToken(_tokenAddress);
     }
 
-    // Get a user by Address
-    function getUserByAddress(address userAddress) public view verifyAddr(userAddress) returns (User memory) {
+    // Add users to the bank
+    function registerUser(string memory uname) public {
+        require(bytes(users[msg.sender].uname).length == 0, "User already registered!");
+        uint256 userBalance = token.checkBalanceOf(msg.sender); // Default to 0 if none.
+        users[msg.sender] = User(uname, userBalance);
+    }
+
+    // Serach for a specific user with the address
+    function getUserByAddress(address userAddress) public view returns (User memory) {
         return users[userAddress];
     }
 
-    // Get a user by Username
-    function getUserByName(string memory Uname) public view findUserByUname(Uname) returns (User memory) {
-        return users[msg.sender];
-    }
-
-    // Deposit to the users address
-    function deposit() public payable verifyAddr(msg.sender) {
-        if (msg.value < minDepAmt) {
-            status = Status.Failed;
-            emit DepositFailed(msg.sender, "Minimum deposit amount is 0.00038");
-            return;
-        }
-        // Transfer tokens from user to the bank
-        transferFrom(payable(msg.sender), address(this), msg.value);
-        users[msg.sender].balance += msg.value;
+    // Place a deposit from the the address trigering the function to the bank(contract address)
+    function deposit() public payable verifyAddr {
+        require(msg.value > minDepAmt, "Minimum deposit amount not met");
+        token.transfer(address(this), msg.value);
         status = Status.Successful;
         emit DepositSuccessful(msg.sender, msg.value);
     }
 
-    // Withdraw to an external account
-    function withdraw(uint256 amount, address payable addr) public payable verifyAddr(msg.sender) {
-        require(amount <= users[addr].balance, "Insufficient balance");
-        require(amount <= maxWithdAmt, "Withdrawal amount exceeds limit");
-        users[addr].balance -= amount;
-        transfer(addr, amount);
-        emit WithdrawalSuccessful(addr, msg.sender, amount);
+    // Place a withdrawal from the bank (contract address) to the address in request(msg.sender)
+    function withdraw(uint256 amount) public payable verifyAddr {
+        require(amount < users[msg.sender].balance, "Insufficient balance");
+        require(amount < maxWithdAmt, "Withdrawal amount exceeds limit");
+        users[address(this)].balance -= amount;
+        users[msg.sender].balance += amount;
+        // token.removeMoney(msg.sender, amount);
+        emit WithdrawalSuccessful(msg.sender, amount);
+        status = Status.Successful;
     }
 
+    // Mint new tokens
     function mintToken(uint256 amount) public {
-        mint(address(this), amount);
+        token.mint(address(this), amount);
     }
 
+    // Burn some of the tokens
     function burnToken(uint256 amount) public {
-        burn(address(this), amount);
+        token.burn(address(this), amount);
     }
 
-    // Helper function to check if an address is a contract address
-    function isContractAddr(address addr_) internal view returns (bool) {
-        return addr_.code.length > 0;
+    // Transfer onwership of the token
+    function changeOwnership(address newOwner) public {
+        token.transferOwnership(newOwner);
+    }
+
+    // Get the balance of the smart contract
+    function getContractBalance() public view returns (uint256) {
+        return (token.checkBalanceOf(address(this)));
+    }
+
+    // Get some meta data about the JVC token
+    function getTokenInfo()
+        public
+        returns (
+            uint256 totalSupply,
+            string memory tokenName,
+            string memory tokenSymbol,
+            uint256 tokenDecimal
+        )
+    {
+        return (token.tokenInfo());
+    }
+
+    // Get the acount balance of a user
+    function getBalanceOf(address _addr) public view returns(uint balance){
+        return token.checkBalanceOf(_addr);
+    }
+
+    // Helper function to check contract address
+    function isContractAddr(address addr) internal view returns (bool) {
+        return addr.code.length > 0;
     }
 }
