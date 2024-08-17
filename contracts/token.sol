@@ -38,16 +38,19 @@ contract JVCToken is Ownable {
         return balances[_owner];
     }
 
+    // Burn some JVCToken
     function burn(address account, uint256 value) external virtual onlyOwner {
         require(account != address(0), "Invalid account!");
         _update(account, address(0), value);
     }
 
+    // Mint more JVCToken
     function mint(address account, uint256 value) external virtual onlyOwner {
         require(account != address(0), "Invalid address");
         _update(address(0), account, value);
     }
 
+    // Helper function to mint or burn a token
     function _update(address  from, address  to, uint256 value) internal virtual {
         if (from == address(0)) {
            totalSupply += value;
