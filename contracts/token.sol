@@ -27,7 +27,7 @@ contract JVCToken is Ownable {
 
     function transfer(address _to, uint256 _value) external virtual returns (bool success) {
         require(balances[msg.sender] >= _value, "token balance is lower than the value requested");
-        require(msg.sender != _to, "You can't send to yourself!");
+        require(msg.sender != _to, "Hold on, you wan deposit to yourself. Dey play!");
         balances[msg.sender] -= _value;
         balances[_to] += _value;
         emit Transfer(msg.sender, _to, _value); //solhint-disable-line indent, no-unused-vars
