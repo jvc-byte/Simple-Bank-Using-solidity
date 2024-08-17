@@ -88,7 +88,7 @@ The JVCToken Bank is a decentralized application (dApp) where users can manage t
 
 ## Contributing
 
-Any form of contributions are welcome!
+Contributions are welcome!
 
 ## License
 
