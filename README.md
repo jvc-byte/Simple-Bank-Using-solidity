@@ -41,7 +41,7 @@ The JVCToken Bank is a decentralized application (dApp) where users can manage t
 
 ### Installation
 
-1. **Clone the repository:** Check [here](https://medium.com/@jvc-byte/how-to-clone-a-github-repository-in-remix-ide-two-steps-218d820824b1) for how to clone repository on Remix IDE.
+1. **Clone the repository:**clone the repo to your Remix IDE. Check [here](https://medium.com/@jvc-byte/how-to-clone-a-github-repository-in-remix-ide-two-steps-218d820824b1) for how to clone repository on Remix IDE.
 
 ## Usage
 
