@@ -47,7 +47,7 @@ The JVCToken Bank is a decentralized application (dApp) where users can manage t
 
 ### Deploying the Contracts
 
-1. **Deploy the contracts:** Deploy the contract on remix IDE on sepolia testnet using injected provider - Metamask 
+1. Deploy the contract using Remix IDE on sepolia testnet using injected provider - Metamask 
 
 3. **Interact with the contracts:** You can interact with the contracts right there on remix IDE.
 
