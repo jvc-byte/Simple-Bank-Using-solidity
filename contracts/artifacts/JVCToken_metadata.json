@@ -227,7 +227,7 @@
 			{
 				"inputs": [
 					{
-						"internalType": "address",
+						"internalType": "address payable",
 						"name": "_to",
 						"type": "address"
 					},
@@ -245,7 +245,7 @@
 						"type": "bool"
 					}
 				],
-				"stateMutability": "nonpayable",
+				"stateMutability": "payable",
 				"type": "function"
 			},
 			{
@@ -325,11 +325,11 @@
 			]
 		},
 		"contracts/token.sol": {
-			"keccak256": "0x9637fadbb6587905bf956558e4bc3719201b10e61fb9bfcecf499b3a706947e0",
+			"keccak256": "0xfb047b0c36431e1310a4233e31f3dc43c87ea65eb507132abdd74d9962cff991",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://4c4132ba69ba6fdf97bd4101e81635ed3fcff72a85b9b511b728d54d23319eb6",
-				"dweb:/ipfs/QmTKE9GSBTWkEyu9EvKRjNhTUy1bHbzFej5DZ4jxJTwK2U"
+				"bzz-raw://c786fbb87dea3cc4640fb009c14d29c8d8636c4eb3e57d8508d8df7a6bb0afd2",
+				"dweb:/ipfs/QmRcGSAftsaACHjqt43P1JXQzgdc9z4aFKHzM467ttkvSS"
 			]
 		}
 	},
