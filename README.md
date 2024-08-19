@@ -98,6 +98,6 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 
 - **Author**: JVC-Byte
 - **Email**: [Send a mail](mailto:jvc8463@gmail.com)
-- **GitHub**: [jvc-byte](https://github.com/jvc-byte)
+- **Twitter**: [jvc_byte](https://x.com/jvc_byte)
 
 ---
