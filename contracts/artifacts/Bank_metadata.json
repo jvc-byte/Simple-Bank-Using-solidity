@@ -93,6 +93,31 @@
 				"type": "event"
 			},
 			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "string",
+						"name": "userName",
+						"type": "string"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "userBalance",
+						"type": "uint256"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "userAddress",
+						"type": "address"
+					}
+				],
+				"name": "userInfo",
+				"type": "event"
+			},
+			{
 				"inputs": [
 					{
 						"internalType": "uint256",
@@ -189,28 +214,26 @@
 				"inputs": [
 					{
 						"internalType": "address",
-						"name": "userAddress",
+						"name": "",
 						"type": "address"
 					}
 				],
 				"name": "getUserByAddress",
 				"outputs": [
 					{
-						"components": [
-							{
-								"internalType": "string",
-								"name": "uname",
-								"type": "string"
-							},
-							{
-								"internalType": "uint256",
-								"name": "balance",
-								"type": "uint256"
-							}
-						],
-						"internalType": "struct Bank.User",
-						"name": "",
-						"type": "tuple"
+						"internalType": "string",
+						"name": "uname",
+						"type": "string"
+					},
+					{
+						"internalType": "uint256",
+						"name": "balance",
+						"type": "uint256"
+					},
+					{
+						"internalType": "address",
+						"name": "uaddress",
+						"type": "address"
 					}
 				],
 				"stateMutability": "view",
@@ -313,19 +336,19 @@
 			]
 		},
 		"contracts/bank.sol": {
-			"keccak256": "0x1d6b67c724c05fdd7fbfe2b8f778a1908666ebbe9e27ab3b1b34a95275a1c752",
+			"keccak256": "0xff5dbe7ad557bc11fdb086cbd192edd6e08ba77a0b9fb94cab7a81d7dd18a8bb",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://2683f77338cbc60539a81bbf0436b9834d8beb0851c8e61217f53fa6ded17582",
-				"dweb:/ipfs/QmVRJTha6rpuqixTRqwpRiqt75cZfwsAGKs13RctEtRJMp"
+				"bzz-raw://b7782356400d8df3864ec41b1608d6ff429218157ce890c6356a1f602f9337e2",
+				"dweb:/ipfs/QmYVLGnreN61rGYRDJEv17z34TJJxNn9qXg4yyswjoMF5J"
 			]
 		},
 		"contracts/token.sol": {
-			"keccak256": "0xbe9c237651ec00440090114afa59bad5203f442fd03e654ae842cddf7c1afb93",
+			"keccak256": "0xb17d259cc414a91c98c86c24928947be9ab62e8879394ccc70bfd1a656344f17",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://6dd411a6758cc1599c185d978ff773e10c66f1f28239cc4d670b38b18b79e10a",
-				"dweb:/ipfs/QmefPxbHZWvY9x3wDXVpiMxb7iSZbfZzWd9doy29wVa18D"
+				"bzz-raw://483efbc8eb09e6df7295a88cbceb99ffb6a3c8df131becce1d53fff07296e5e7",
+				"dweb:/ipfs/QmSjhqaEa42QtX1bPviDdSiUzsjcYd4RJFsyXCdrdNgBdU"
 			]
 		}
 	},
