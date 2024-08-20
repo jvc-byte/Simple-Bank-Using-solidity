@@ -41,13 +41,13 @@ The JVCToken Bank is a decentralized application (dApp) where users can manage t
 
 ### Installation
 
-1. **Clone the repository:** Check [here](https://medium.com/@jvc-byte/how-to-clone-a-github-repository-in-remix-ide-two-steps-218d820824b1) for how to clone repository on Remix IDE.
+1. **Clone the repository:**clone the repo to your Remix IDE. Check [here](https://medium.com/@jvc-byte/how-to-clone-a-github-repository-in-remix-ide-two-steps-218d820824b1) for how to clone repository on Remix IDE.
 
 ## Usage
 
 ### Deploying the Contracts
 
-1. **Deploy the contracts:** Deploy the contract on remix IDE on sepolia testnet using injected provider - Metamask 
+1. Deploy the contract using Remix IDE on sepolia testnet using injected provider - Metamask 
 
 3. **Interact with the contracts:** You can interact with the contracts right there on remix IDE.
 
@@ -88,7 +88,7 @@ The JVCToken Bank is a decentralized application (dApp) where users can manage t
 
 ## Contributing
 
-Any form of contributions are welcome!
+Contributions are welcome!
 
 ## License
 
@@ -98,6 +98,6 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 
 - **Author**: JVC-Byte
 - **Email**: [Send a mail](mailto:jvc8463@gmail.com)
-- **GitHub**: [jvc-byte](https://github.com/jvc-byte)
+- **Twitter**: [jvc_byte](https://x.com/jvc_byte)
 
 ---
