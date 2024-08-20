@@ -1,9 +1,9 @@
 // SPDX-License-Identifier: MIT
-pragma solidity ^0.8.24;
+pragma solidity >=0.5.0 <0.9.0;
 
 import "./token.sol";
 
-contract Bank{
+contract Bank {
     // Create an instance of the contract (JVCToken)
     JVCToken internal token;
 
@@ -97,20 +97,12 @@ contract Bank{
     }
 
     // Get some meta data about the JVC token
-    function getTokenInfo()
-        public
-        returns (
-            uint256 totalSupply,
-            string memory tokenName,
-            string memory tokenSymbol,
-            uint256 tokenDecimal
-        )
-    {
+    function getTokenInfo() public returns (uint256 totalSupply, string memory tokenName, string memory tokenSymbol, uint256 tokenDecimal) {
         return (token.tokenInfo());
     }
 
     // Get the acount balance of a user
-    function getBalanceOf(address _addr) public view returns(uint balance){
+    function getBalanceOf(address _addr) public view returns (uint balance) {
         return token.checkBalanceOf(_addr);
     }
 
