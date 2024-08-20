@@ -3,18 +3,19 @@ pragma solidity ^0.8.24;
 
 import "./token.sol";
 
-contract Bank {
+contract Bank{
     // Create an instance of the contract (JVCToken)
     JVCToken internal token;
 
-    // Storage location for the users
+    // Storage location of the users
     struct User {
         string uname;
         uint256 balance;
+        address uaddress;
     }
 
-    // Use address as a key to access the storage location for the users
-    mapping(address => User) private users;
+    // Use address as a key to access the storage location of the users
+    mapping(address => User) public getUserByAddress;
 
     // Constants for minimum deposit and maximum withdrawal amount
     uint256 private constant minDepAmt = 100 wei;
@@ -34,6 +35,9 @@ contract Bank {
     event WithdrawalSuccessful(address indexed user, uint256 amount);
     event WithdrawalFailed(address indexed user, string message);
 
+    //event to log when a user registers
+    event userInfo(string userName, uint256 userBalance, address indexed userAddress);
+
     // Function modifier to ensure an address in not a contract address
     modifier verifyAddr() {
         require(!isContractAddr(msg.sender), "This is a contract address!");
@@ -47,30 +51,26 @@ contract Bank {
 
     // Add users to the bank
     function registerUser(string memory uname) public {
-        require(bytes(users[msg.sender].uname).length == 0, "User already registered!");
+        require(bytes(getUserByAddress[msg.sender].uname).length == 0, "User already registered!");
         uint256 userBalance = token.checkBalanceOf(msg.sender); // Default to 0 if none.
-        users[msg.sender] = User(uname, userBalance);
-    }
-
-    // Serach for a specific user with the address
-    function getUserByAddress(address userAddress) public view returns (User memory) {
-        return users[userAddress];
+        getUserByAddress[msg.sender] = User(uname, userBalance, msg.sender);
+        emit userInfo(uname, userBalance, msg.sender);
     }
 
     // Place a deposit from the the address trigering the function to the bank(contract address)
     function deposit() public payable verifyAddr {
-        require(msg.value > minDepAmt, "Minimum deposit amount not met");
-        token.transfer(address(this), msg.value);
+        require(msg.value >= minDepAmt, "Minimum deposit amount not met");
+        token.transfer(payable(address(this)), msg.value);
         status = Status.Successful;
         emit DepositSuccessful(msg.sender, msg.value);
     }
 
     // Place a withdrawal from the bank (contract address) to the address in request(msg.sender)
     function withdraw(uint256 amount) public payable verifyAddr {
-        require(amount < users[msg.sender].balance, "Insufficient balance");
-        require(amount < maxWithdAmt, "Withdrawal amount exceeds limit");
-        users[address(this)].balance -= amount;
-        users[msg.sender].balance += amount;
+        require(amount <= getUserByAddress[msg.sender].balance, "Insufficient balance");
+        require(amount <= maxWithdAmt, "Withdrawal amount exceeds limit");
+        getUserByAddress[payable(address(this))].balance -= amount;
+        getUserByAddress[payable(msg.sender)].balance += amount;
         // token.removeMoney(msg.sender, amount);
         emit WithdrawalSuccessful(msg.sender, amount);
         status = Status.Successful;
