@@ -127,6 +127,19 @@
 				"type": "function"
 			},
 			{
+				"inputs": [],
+				"name": "getCaller",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "Caller",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
 				"inputs": [
 					{
 						"internalType": "address",
@@ -325,11 +338,11 @@
 			]
 		},
 		"contracts/token.sol": {
-			"keccak256": "0xb17d259cc414a91c98c86c24928947be9ab62e8879394ccc70bfd1a656344f17",
+			"keccak256": "0x35326da1cfa9f6fb22a16ece502532b791caf922e5546f11b43bf3e2db16b839",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://483efbc8eb09e6df7295a88cbceb99ffb6a3c8df131becce1d53fff07296e5e7",
-				"dweb:/ipfs/QmSjhqaEa42QtX1bPviDdSiUzsjcYd4RJFsyXCdrdNgBdU"
+				"bzz-raw://b6f1752d288ad96a8424b0af97b996903751784261c66e4f85dc36b3b25b3bb9",
+				"dweb:/ipfs/QmZv2qaynD47WTfSdPZ46Zvsx1ebebiHRPwefDTLjMzQvP"
 			]
 		}
 	},

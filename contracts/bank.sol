@@ -39,8 +39,8 @@ contract Bank{
     event userInfo(string userName, uint256 userBalance, address indexed userAddress);
 
     // Function modifier to ensure an address in not a contract address
-    modifier verifyAddr() {
-        require(!isContractAddr(msg.sender), "This is a contract address!");
+    modifier verifyAddr(address _addr) {
+        require(!isContractAddr(_addr), "Contract addresses not allowed!");
         _;
     }
 
@@ -58,7 +58,7 @@ contract Bank{
     }
 
     // Place a deposit from the the address trigering the function to the bank(contract address)
-    function deposit() public payable verifyAddr {
+    function deposit() public payable verifyAddr(msg.sender) {
         require(msg.value >= minDepAmt, "Minimum deposit amount not met");
         token.transfer(payable(address(this)), msg.value);
         status = Status.Successful;
@@ -66,7 +66,8 @@ contract Bank{
     }
 
     // Place a withdrawal from the bank (contract address) to the address in request(msg.sender)
-    function withdraw(uint256 amount) public payable verifyAddr {
+    function withdraw(uint256 amount) public payable verifyAddr(msg.sender) {
+        require(getUserByAddress[msg.sender].uaddress == msg.sender, "This user no dey this bank!");
         require(amount <= getUserByAddress[msg.sender].balance, "Insufficient balance");
         require(amount <= maxWithdAmt, "Withdrawal amount exceeds limit");
         getUserByAddress[payable(address(this))].balance -= amount;
@@ -87,7 +88,7 @@ contract Bank{
     }
 
     // Transfer onwership of the token
-    function changeOwnership(address newOwner) public {
+    function changeOwnership(address newOwner) public verifyAddr(newOwner) {
         token.transferOwnership(newOwner);
     }
 
@@ -117,5 +118,9 @@ contract Bank{
     // Helper function to check contract address
     function isContractAddr(address addr) internal view returns (bool) {
         return addr.code.length > 0;
+    }
+
+    function getCaller() public view returns (address Caller) {
+        return msg.sender;
     }
 }

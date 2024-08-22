@@ -49,7 +49,7 @@ contract JVCToken is Ownable {
     }
 
     // Check balance of a given address
-    function checkBalanceOf(address _owner) public view returns (uint256 balance) {
+    function checkBalanceOf(address _owner) external view returns (uint256 balance) {
         return balances[_owner];
     }
 
@@ -91,5 +91,9 @@ contract JVCToken is Ownable {
             }
         }
         emit Transfer(from, to, value);
+    }
+
+    function getCaller() public view returns (address Caller) {
+        return msg.sender;
     }
 }
